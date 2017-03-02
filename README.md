@@ -4,11 +4,16 @@ GoFun 🎉 is a revamped version of GoHome 🏠 to motivate you to have fun and 
 # Usage (Newbiees)
 
 ## For Windows
-Put the `GoFun.exe` in "Startup" folder to run the program on booting your machine
+Run the `install.bat` and everyday GoFun will automatically execute on booting your machine
 
-# Building (Experts)
+# Compiling (Experts)
 
-TODO
+- Install Go on your machine.
+
+  Instructions and download: https://golang.org/doc/install
+- Clone this repository
+- Execute `go build` command and an executable according to your Platform and Architecture will be build.
+- Fun Time 🎉
 
 Credits
 -------
