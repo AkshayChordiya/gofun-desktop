@@ -1,12 +1,29 @@
-# GoFun-Client
-GoFun 🎉 is a revamped version of GoHome 🏠 to motivate you to have fun and live your life
+# GoFun Desktop :sunglasses:
 
-# Usage (Newbiees)
+GoFun is a *fun* way to manage your work life balance. The idea is to make people *live* their life.
 
-## For Windows
-Run the `install.bat` and everyday GoFun will automatically execute on booting your machine
+It will start timer :alarm_clock: automatically after booting your machine first time. It will track your minimum work time and notify :mega: you after completion to Go have Fun :tada:
 
-# Compiling (Experts)
+**It is a Desktop 🖥️ app** 
+
+## Usage
+
+1. Download GoFun app from [gofun-app](https://github.com/adityakamble49/gofun-app)
+2. Download GoFun desktop app
+3. Run the `install.bat` and login with same credentials
+4. Go Fun will take care of rest :hourglass: and automatically execute on booting your machine
+
+--------------------
+
+## Development
+
+### Prerequisites
+
+- Golang installed
+- Optional: Any Golang IDE preferably [Gogland](https://www.jetbrains.com/go/)
+- That's it!
+
+### Compiling from source (Experts)
 
 - Install Go on your machine.
 
@@ -15,12 +32,17 @@ Run the `install.bat` and everyday GoFun will automatically execute on booting y
 - Execute `go build` command and an executable according to your Platform and Architecture will be build.
 - Fun Time 🎉
 
-Credits
--------
 
-Author: [Aditya Kamble](https://github.com/adityakamble49) and [Akshay Chordiya](https://github.com/AkshayChordiya)
+## Built With
 
-License
+* [Gogland](https://www.jetbrains.com/go/) - The IDE for Golang
+
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for contributions.
+
+## License
 -------
 
     Copyright (c) 2017 Akshay Chordiya
