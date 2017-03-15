@@ -1,15 +1,17 @@
-# GoFun Desktop :sunglasses:
+# GoFun :tada: Desktop :computer:
 
-GoFun is a *fun* way to manage your work life balance. The idea is to make people *live* their life.
-
-It will start timer :alarm_clock: automatically after booting your machine first time. It will track your minimum work time and notify :mega: you after completion to Go have Fun :tada:
+Workaholic people go to their offices and get engrossed in their work so much that they forget about their lives beyond that….almost every day.
+GoFun is an ultimate solution to serve as a reminder to stop the work and live your life, have some fun :notes:. It helps you manage your work life balance.
 
 **It is a Desktop 🖥️ app** 
+
+## How it works?
+Go Fun will start timer :alarm_clock: automatically after booting your office desktop or laptop. It will track your minimum work time and notify :mega: you after completion to go home and have some Fun :tada:
 
 ## Usage
 
 1. Download GoFun app from [gofun-app](https://github.com/adityakamble49/gofun-app)
-2. Download GoFun desktop app
+2. Download [GoFun desktop app](https://github.com/AkshayChordiya/gofun-desktop/archive/v1.2.zip)
 3. Run the `install.bat` and login with same credentials
 4. Go Fun will take care of rest :hourglass: and automatically execute on booting your machine
 
@@ -25,12 +27,10 @@ It will start timer :alarm_clock: automatically after booting your machine first
 
 ### Compiling from source (Experts)
 
-- Install Go on your machine.
-
-  Instructions and download: https://golang.org/doc/install
-- Clone this repository
-- Execute `go build` command and an executable according to your Platform and Architecture will be build.
-- Fun Time 🎉
+1. Install [Go](https://golang.org/doc/install) on your machine. 
+2. Clone this repository
+3. Execute `go build` command and an executable according to your Platform and Architecture will be build.
+4. It's Fun Time :tada:  Yo!
 
 
 ## Built With
