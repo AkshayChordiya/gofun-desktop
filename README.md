@@ -10,7 +10,10 @@ Go Fun will start timer :alarm_clock: automatically after booting your office de
 
 ## Usage
 
-1. Download GoFun app from [gofun-app](https://github.com/adityakamble49/gofun-app)
+1. Download GoFun Android app :
+    - [GoFun Android app by Akshay Chordiya](https://github.com/AkshayChordiya/gofun-android)
+    OR
+    - [GoFun Android app by Aditya Kamble](https://github.com/adityakamble49/gofun-app)
 2. Download [GoFun desktop app](https://github.com/AkshayChordiya/gofun-desktop/archive/v1.2.zip)
 3. Run the `install.bat` and login with same credentials
 4. Go Fun will take care of rest :hourglass: and automatically execute on booting your machine
