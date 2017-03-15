@@ -38,40 +38,33 @@ func StartTime() {
 	fmt.Println("Welcome to GoFun")
 	token := GetToken()
 	if token != "" {
-		beginTime(token)
+		sendTimeRequest(token)
 	} else {
 		token = AuthenticateUser()
-		beginTime(token)
+		sendTimeRequest(token)
 	}
 }
 
 // Send the time start request to server and start the countdown
-func beginTime(token string) {
+func sendTimeRequest(token string) {
+	if token == "" {
+		fmt.Println("Invalid login credentials")
+		return
+	}
 	// Start time here
 	values := jsongo.Object().Put("in_time", GetCurrentTimestamp())
 	request, _ := http.NewRequest("POST", START_TIME_API_URL, bytes.NewBufferString(values.String()))
 	request.Header.Add("Content-Type", "application/json")
 	request.Header.Add("Authorization", "Token "+token)
 	client := &http.Client{}
-	response, _ := client.Do(request)
-	if response.StatusCode == 201 {
-		// We are good to go!
-		fmt.Println("Commencing countdown ⏰ to Go Home 🏠")
-		hour, min := 7, 30
-		endTime := GetWorkEndTime(hour, min)
-
-		fmt.Println("Going Home at", endTime.Format(time.Kitchen), "after", endTime.Sub(time.Now()))
-
-		// Create new ticker
-		ticker := time.NewTicker(time.Minute * 1)
-		go StartTimeTicker(*time.NewTicker(time.Minute * 1), endTime)
-
-		// Let's keep the app running till working hour is complete
-		<-time.After(time.Duration(hour*60+min) * time.Minute)
-
-		// Completion hours are complete, let's stop the timer
-		ticker.Stop()
-		ShowGoHomeWindow(GO_FUN_MESSAGE)
+	response, err := client.Do(request)
+	if err == nil {
+		if response.StatusCode == 201 {
+			internalBeginTime()
+		}
+	} else {
+		fmt.Println("Working in Offline mode")
+		internalBeginTime()
 	}
 }
 
@@ -86,14 +79,37 @@ func AuthenticateUser() string {
 	request, _ := http.NewRequest("POST", TOKEN_API_URL, bytes.NewBufferString(values.String()))
 	request.Header.Add("Content-Type", "application/json")
 	client := &http.Client{}
-	response, _ := client.Do(request)
-	body, _ := ioutil.ReadAll(response.Body)
-	// Un-marshal JSON into object
-	json.Unmarshal(body, &token)
-	// Persist the object aka Token into file
-	file, _ := os.Create("../token")
-	file.WriteString(token.Token)
-	return token.Token
+	response, err := client.Do(request)
+	if err == nil {
+		body, _ := ioutil.ReadAll(response.Body)
+		// Un-marshal JSON into object
+		json.Unmarshal(body, &token)
+		// Persist the object aka Token into file
+		file, _ := os.Create("../token")
+		file.WriteString(token.Token)
+		return token.Token
+	}
+	return ""
+}
+
+func internalBeginTime() {
+	// We are good to go!
+	fmt.Println("Commencing countdown ⏰ to Go Home 🏠")
+	hour, min := 7, 30
+	endTime := GetWorkEndTime(hour, min)
+
+	fmt.Println("Going Home at", endTime.Format(time.Kitchen), "after", endTime.Sub(time.Now()))
+
+	// Create new ticker
+	ticker := time.NewTicker(time.Minute * 1)
+	go StartTimeTicker(*time.NewTicker(time.Minute * 1), endTime)
+
+	// Let's keep the app running till working hour is complete
+	<-time.After(time.Duration(hour*60+min) * time.Minute)
+
+	// Completion hours are complete, let's stop the timer
+	ticker.Stop()
+	ShowGoHomeWindow(GO_FUN_MESSAGE)
 }
 
 // Show dialog to notify user about completion of his/her working hours
