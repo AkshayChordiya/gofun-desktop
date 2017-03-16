@@ -1,5 +1,7 @@
 # GoFun :tada: Desktop :computer:
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9801bf103318447eadf88f04ea658c39)](https://www.codacy.com/app/AkshayChordiya/gofun-desktop?utm_source=github.com&utm_medium=referral&utm_content=AkshayChordiya/gofun-desktop&utm_campaign=badger)
+
 Workaholic people go to their offices and get engrossed in their work so much that they forget about their lives beyond that….almost every day.
 GoFun is an ultimate solution to serve as a reminder to stop the work and live your life, have some fun :notes:. It helps you manage your work life balance.
 
